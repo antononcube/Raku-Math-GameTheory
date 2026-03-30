@@ -1,0 +1,17 @@
+use v6.d;
+use Math::GameTheory;
+use Test;
+
+plan *;
+
+ok game-theory-data();
+
+is game-theory-data('DinersDilemma', 'NPlayer'), True;
+
+isa-ok game-theory-data('DinersDilemma', 'Description'), Str:D;
+
+isa-ok game-theory-data('DinersDilemma', 'Source'), Str:D;
+
+isa-ok game-theory-data('DinersDilemma', 'Classes'), Positional:D;
+
+done-testing;

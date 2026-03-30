@@ -2,7 +2,7 @@
   "3Coordination": {
     "name": "3Coordination",
     "description": "An extension of the coordination game where payoffs are based on the number of coordinated players.",
-    "sources": "https://doi.org/10.1017/CBO9780511609428",
+    "source": "https://doi.org/10.1017/CBO9780511609428",
     "classes": [
       "3Player",
       "Coordination",
@@ -13,7 +13,7 @@
   "ArmsRaces": {
     "name": "ArmsRaces",
     "description": "Two countries are choosing levels of arms. Payoffs are based on the cost of the level of arms and the relationship between the country's strength and the strength of the opponent country.",
-    "sources": "https://doi.org/10.2307/2610948",
+    "source": "https://doi.org/10.2307/2610948",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -24,7 +24,7 @@
   "BachOrStravinsky": {
     "name": "BachOrStravinsky",
     "description": "Two players prefer coordination but have conflicting interests.",
-    "sources": "https://doi.org/10.1016/0898-1221(95)90101-9",
+    "source": "https://doi.org/10.1016/0898-1221(95)90101-9",
     "classes": [
       "2Player",
       "Coordination",
@@ -35,7 +35,7 @@
   "BattleOfTheBismarck": {
     "name": "BattleOfTheBismarck",
     "description": "In the South Pacific Ocean in 1943, Admiral Kimura was ordered to transport Japanese troops across the Bismarck Sea to New Guinea, but he knew the American Admiral Kenney wanted to bomb the troop transports. Two decisions must take place simultaneously: Kimura must choose between a shorter or a longer route for his troops, while Kenney must decide on which route to send his planes to look for the Japanese troops. If Kenney sends his planes to the wrong route, he can recall them, but that makes his troops lose time.",
-    "sources": "https://doi.org/10.1287/opre.2.4.365",
+    "source": "https://doi.org/10.1287/opre.2.4.365",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -45,7 +45,7 @@
   "BattleOfTheSexes": {
     "name": "BattleOfTheSexes",
     "description": null,
-    "sources": null,
+    "source": null,
     "classes": [
       "Symmetric"
     ]
@@ -53,7 +53,7 @@
   "BeerQuiche": {
     "name": "BeerQuiche",
     "description": "An individual B is considering dueling individual A. B does not know if A is either a wimp or is surly. B would prefer a duel if A is a wimp but not if A is surly. Player A wants to avoid a duel. Before making the decision, B can see whether A chooses to have beer or quiche for breakfast. Both players know that wimps prefer quiche while \\\"surlies\\\" prefer beer.",
-    "sources": "https://doi.org/10.2307%2F1885060",
+    "source": "https://doi.org/10.2307%2F1885060",
     "classes": [
       "TreeGame"
     ]
@@ -61,7 +61,7 @@
   "BertrandOligopoly": {
     "name": "BertrandOligopoly",
     "description": "An economic game serving as a model of competition, describing interactions among firms that set prices and their customers that buy products at the prices set.",
-    "sources": "https://doi.org/10.1215/00182702-24-3-623",
+    "source": "https://doi.org/10.1215/00182702-24-3-623",
     "classes": [
       "Economics",
       "MatrixGame"
@@ -70,7 +70,7 @@
   "BuyingStock": {
     "name": "BuyingStock",
     "description": "Game found in Solving Systems of Polynomial Equations, AMS, 2002, Chapter 6, named Nash's investment game. Solved with Shapley in the 1950s.",
-    "sources": "https://doi.org/10.1090/cbms/097",
+    "source": "https://doi.org/10.1090/cbms/097",
     "classes": [
       "3Player",
       "MatrixGame"
@@ -79,7 +79,7 @@
   "Centipede": {
     "name": "Centipede",
     "description": "There is a coin pile on a table. Player X and player Y take turns to take either one or two coins from the pile, keeping the coins they take. If either of them takes two coins, the game stops, and no one gets the remaining coins. The game end when one player takes two coins, or when the pile is exhausted.",
-    "sources": "https://doi.org/10.1016%2F0022-0531%2881%2990018-1",
+    "source": "https://doi.org/10.1016%2F0022-0531%2881%2990018-1",
     "classes": [
       "TreeGame"
     ]
@@ -87,7 +87,7 @@
   "Chicken": {
     "name": "Chicken",
     "description": "The name \\\"chicken\\\" has its origins in a dangerous game in which two drivers drive toward each other. Each driver has the choice to either continue or swerve. Either at least one driver swerves, or both may die in the crash. The driver who swerved will be called a chicken, meaning a coward.",
-    "sources": "https://doi.org/10.1177/000276426601000303",
+    "source": "https://doi.org/10.1177/000276426601000303",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -98,7 +98,7 @@
   "ColonelBlotto": {
     "name": "ColonelBlotto",
     "description": "Two rival military officers are tasked to simultaneously distribute limited resources over several battlefields. The player with the most resources on a battlefield wins on that battlefield, and the payoff is equal to the total number of battlefields won.",
-    "sources": "https://doi.org/10.2307/1906946",
+    "source": "https://doi.org/10.2307/1906946",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -108,7 +108,7 @@
   "Compound": {
     "name": "Compound",
     "description": "Symmetric 2x2 games extended to any number of players. This is a generalization of BachOrStravinsky, Chicken and maximization difference games.",
-    "sources": "https://doi.org/10.7249/rm3192",
+    "source": "https://doi.org/10.7249/rm3192",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -118,7 +118,7 @@
   "Contribution": {
     "name": "Contribution",
     "description": "Games which have three equilibria: two asymmetric equilibria in pure strategies and one symmetric equilibrium in mixed strategy.",
-    "sources": "https://dl.acm.org/doi/10.5555/1018410.1018840",
+    "source": "https://dl.acm.org/doi/10.5555/1018410.1018840",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -128,7 +128,7 @@
   "Convergence": {
     "name": "Convergence",
     "description": "No description.",
-    "sources": "https://doi.org/10.2307/1906951",
+    "source": "https://doi.org/10.2307/1906951",
     "classes": [
       "2Player",
       "Coordination",
@@ -139,7 +139,7 @@
   "CournotOligopoly": {
     "name": "CournotOligopoly",
     "description": "A group of firms produce identical goods. Each firm must consider their production cost and the quantity the other firms are producing to decide the quantity to produce. Only the firms with the lowest price sell goods, with a payoff function based on the price, quantity and cost of the good for the corresponding firm.",
-    "sources": "https://doi.org/10.1086/250526",
+    "source": "https://doi.org/10.1086/250526",
     "classes": [
       "Economics",
       "MatrixGame"
@@ -148,7 +148,7 @@
   "DangerousCoordination": {
     "name": "DangerousCoordination",
     "description": "This is a coordination game where the Nash equilibrium is unreasonable, as it constitutes a huge risk for one of the players.",
-    "sources": "https://dl.acm.org/doi/10.5555/1018410.1018840",
+    "source": "https://dl.acm.org/doi/10.5555/1018410.1018840",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -158,7 +158,7 @@
   "DinersDilemma": {
     "name": "DinersDilemma",
     "description": "A group of people go dine together, and before ordering, they agree to split the bill equally. Each person may choose between a costly or cheap dish. It is assumed that the costly dish is better than the cheaper dish, but not by enough to warrant paying the difference when eating alone.",
-    "sources": "https://doi.org/10.1038/scientificamerican0394-76",
+    "source": "https://doi.org/10.1038/scientificamerican0394-76",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -169,7 +169,7 @@
   "Discoordination": {
     "name": "Discoordination",
     "description": "A combination of coordination and anti-coordination games. One player has an interest to coordinate while the other player has interest in not coordinating.",
-    "sources": "https://doi.org/10.1177/000276426601000303",
+    "source": "https://doi.org/10.1177/000276426601000303",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -179,7 +179,7 @@
   "ElFarolBar": {
     "name": "ElFarolBar",
     "description": "Every Thursday night, a number of people want to go have fun at the El Farol Bar, unless it's too crowded. The bar is more fun than staying home if and only if less than 60% of the people go to the bar. Everyone decides simultaneously whether to go or not.",
-    "sources": "https://doi.org/10.1109/cmpcon.1989.301957",
+    "source": "https://doi.org/10.1109/cmpcon.1989.301957",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -190,7 +190,7 @@
   "Entry": {
     "name": "Entry",
     "description": "An entrant decides whether to enter a market or not. In the case the entrant enters, the incumbent decides whether to fight or accommodate the entrant.",
-    "sources": "https://econpapers.repec.org/article/aeaaecrev/v_3a69_3ay_3a1979_3ai_3a2_3ap_3a335-38.htm",
+    "source": "https://econpapers.repec.org/article/aeaaecrev/v_3a69_3ay_3a1979_3ai_3a2_3ap_3a335-38.htm",
     "classes": [
       "TreeGame"
     ]
@@ -198,7 +198,7 @@
   "Escalation": {
     "name": "Escalation",
     "description": "Two nations are in conflict. One nation has the choice to initiate or not initiate, and another nation has the choice to either acquiesce or escalate. A third player, \\\"Nature\\\", represents the probability of the occurrence of Game 1, where both nation are equally prepared, or game 2, where the second nation has an advantage. Neither nation knows if this is a game 1 or game 2. This game is also called the Nuclear game, in reference to the atomic threats during the Cold War.",
-    "sources": "https://doi.org/10.2307/1962679",
+    "source": "https://doi.org/10.2307/1962679",
     "classes": [
       "TreeGame"
     ]
@@ -206,7 +206,7 @@
   "Exponential": {
     "name": "Exponential",
     "description": "An anti-coordination game with an exponentially large payoff, usually studied as a repeated game.",
-    "sources": "https://dl.acm.org/doi/10.5555/1018410.1018840",
+    "source": "https://dl.acm.org/doi/10.5555/1018410.1018840",
     "classes": [
       "2Player",
       "MatrixGame"
@@ -215,7 +215,7 @@
   "Greedy": {
     "name": "Greedy",
     "description": "A subcase of the simple inspection game. Consider a set S of n objects. A player Red chooses a subset of S with at most p objects, while a player Blue chooses a subset of S. If the intersection of the chosen sets is nonempty, the payoffs are 0.",
-    "sources": "https://dl.acm.org/doi/10.5555/1018410.1018840",
+    "source": "https://dl.acm.org/doi/10.5555/1018410.1018840",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -225,7 +225,7 @@
   "GuessTwoThirdsAverage": {
     "name": "GuessTwoThirdsAverage",
     "description": "All players guess a number between 0 and 100. The players that guess closest to 2/3 of the total average get a high payoff, while all others get 0.",
-    "sources": "https://econpapers.repec.org/paper/marmagkse/201211.htm",
+    "source": "https://econpapers.repec.org/paper/marmagkse/201211.htm",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -235,7 +235,7 @@
   "HawkDove": {
     "name": "HawkDove",
     "description": "The name hawk-dove refers to competition for a shared resource, where contestants can choose either cooperation or conflict. This terminology is commonly used in biology and evolutionary game theory.",
-    "sources": "https://www.nature.com/articles/246015a0",
+    "source": "https://www.nature.com/articles/246015a0",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -245,7 +245,7 @@
   "Hero": {
     "name": "Hero",
     "description": "A hero is one who acts to benefit others more than himself. Consider the Prisoner's Dilemma, but both players aim for the best payoff for the other player.",
-    "sources": "https://dl.acm.org/doi/10.5555/1018410.1018840",
+    "source": "https://dl.acm.org/doi/10.5555/1018410.1018840",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -255,7 +255,7 @@
   "Inspection": {
     "name": "Inspection",
     "description": "An agent can either shirk or work, and the principal of that agent can either inspect or not inspect. The agent's work costs g to himself or herself and produces v for the principal. The inspection of the principal costs h for principal. The principal must pay agent w unless he has evidence that the agent did not work.",
-    "sources": "https://www.rand.org/content/dam/rand/pubs/research_memoranda/2008/RM2972.pdf",
+    "source": "https://www.rand.org/content/dam/rand/pubs/research_memoranda/2008/RM2972.pdf",
     "classes": [
       "2Player",
       "Economics",
@@ -265,7 +265,7 @@
   "LinearCournotDuopoly": {
     "name": "LinearCournotDuopoly",
     "description": null,
-    "sources": null,
+    "source": null,
     "classes": [
       "Economics"
     ]
@@ -273,7 +273,7 @@
   "LinearCournotOligopoly": {
     "name": "LinearCournotOligopoly",
     "description": "A simplification of the Cournot oligopoly game with unit costs for producing goods and linear cost functions.",
-    "sources": "https://doi.org/10.1086/250526",
+    "source": "https://doi.org/10.1086/250526",
     "classes": [
       "MatrixGame",
       "NPlayer"
@@ -282,7 +282,7 @@
   "MatchingPennies": {
     "name": "MatchingPennies",
     "description": "Two players make a bet. Each player chooses either Head or Tail. If the choices differ, player 1 pays player 2 a dollar; if they are the same, player 2 pays player 1 a dollar.",
-    "sources": "https://press.princeton.edu/books/paperback/9780691003955/game-theory-for-applied-economists",
+    "source": "https://press.princeton.edu/books/paperback/9780691003955/game-theory-for-applied-economists",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -294,7 +294,7 @@
   "Morra": {
     "name": "Morra",
     "description": "A hand game dating back to ancient Rome and ancient Greece. Each player simultaneously reveals one to five fingers, and shouts a number. If that number matches the total number of fingers revealed by all players combined, the player scores a point.",
-    "sources": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0059%3Aentry%3Dmico",
+    "source": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.04.0059%3Aentry%3Dmico",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -305,7 +305,7 @@
   "MultivariateRandom": {
     "name": "MultivariateRandom",
     "description": "A game with randomly assigned payoffs using a multivariate probability distribution.",
-    "sources": "https://doi.org/10.2307/3607027",
+    "source": "https://doi.org/10.2307/3607027",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -315,7 +315,7 @@
   "NashPoker": {
     "name": "NashPoker",
     "description": "Game found in Solving Systems of Polynomial Equations, AMS, 2002, Chapter 6, named Nash's 3 player poker game. Solved with Shapley in the 1950s.",
-    "sources": "https://doi.org/10.1090/cbms/097",
+    "source": "https://doi.org/10.1090/cbms/097",
     "classes": [
       "3Player",
       "MatrixGame",
@@ -325,7 +325,7 @@
   "OPD": {
     "name": "OPD",
     "description": null,
-    "sources": null,
+    "source": null,
     "classes": [
       "Symmetric"
     ]
@@ -333,7 +333,7 @@
   "OddsAndEvens": {
     "name": "OddsAndEvens",
     "description": "Two people simultaneously reveal a number of fingers. Player 1 wins if the sum is odd, and player 2 wins if the sum is even. Alternatively, one player hides coins in their closed hand, while another player guesses whether they have an odd or even number of coins.",
-    "sources": "https://doi.org/10.1017/s0009840x00042487",
+    "source": "https://doi.org/10.1017/s0009840x00042487",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -344,7 +344,7 @@
   "OptionalPrisonersDilemma": {
     "name": "OptionalPrisonersDilemma",
     "description": "This is an extension of the standard prisoner's dilemma game, where players have a third option: they may reject the deal. This type of game models well situations where agents can abstain from a game.",
-    "sources": "https://pubmed.ncbi.nlm.nih.gov/7564396/",
+    "source": "https://pubmed.ncbi.nlm.nih.gov/7564396/",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -354,7 +354,7 @@
   "PlatoniaDilemma": {
     "name": "PlatoniaDilemma",
     "description": "A rich person gathers 20 people together and tells them that if one and only one of them sends them a telegram by noon the next day, that person will receive a billion dollars. However, if the rich person receive zero or more than one telegram, no one will get the money.",
-    "sources": "https://www.scientificamerican.com/article/metamagical-themas-1983-06/",
+    "source": "https://www.scientificamerican.com/article/metamagical-themas-1983-06/",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -364,7 +364,7 @@
   "PrisonersDilemma": {
     "name": "PrisonersDilemma",
     "description": "Two suspects are arrested and imprisoned, with no way of communicating with each other. The police admit they don't have enough evidence to convict the pair on the principal charge. To avoid this, they propose the following bargain to each prisoner separately: if only one prisoner testifies against their partner, they will go free while the partner will get three years in prison. However, if both prisoners testify against each other, both will get two years in jail. Each prisoner has interest in minimizing their own prison sentence.",
-    "sources": "https://doi.org/10.1080/00223980.1960.9916429",
+    "source": "https://doi.org/10.1080/00223980.1960.9916429",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -375,7 +375,7 @@
   "PureCoordination": {
     "name": "PureCoordination",
     "description": "Two drivers are going opposite directions on a narrow road. If both swerve similarly, they will avoid collision, but if they swerve differently they will collide.",
-    "sources": "https://doi.org/10.1086/292187",
+    "source": "https://doi.org/10.1086/292187",
     "classes": [
       "Coordination",
       "MatrixGame",
@@ -387,7 +387,7 @@
   "Random": {
     "name": "Random",
     "description": "A game with randomly assigned payoffs.",
-    "sources": "https://doi.org/10.2307/3607027",
+    "source": "https://doi.org/10.2307/3607027",
     "classes": [
       "MatrixGame",
       "NPlayer",
@@ -397,7 +397,7 @@
   "Revolution": {
     "name": "Revolution",
     "description": "A colony is faced with a choice: rebel or concede the status quo. If the colony rebels, the country can either grant independence or attempted to suppress the rebellion. Note the colony has a given probability to win. If the colony concedes the status quo, the country may either tax the colony further or not.",
-    "sources": "https://doi.org/10.1515/9781400835881",
+    "source": "https://doi.org/10.1515/9781400835881",
     "classes": [
       "TreeGame"
     ]
@@ -405,7 +405,7 @@
   "RockPaperScissors": {
     "name": "RockPaperScissors",
     "description": "Two players choose simultaneously either rock, paper or scissors. A player who plays rock will beat another player choosing scissors, but will lose to one who has played paper; a player who chooses paper will lose to a player who has chosen scissors. If both players choose the same shape, the game is tied.",
-    "sources": "https://doi.org/10.4324/9780203429549_chapter_2",
+    "source": "https://doi.org/10.4324/9780203429549_chapter_2",
     "classes": [
       "2Player",
       "Intransitive",
@@ -417,7 +417,7 @@
   "Shapley": {
     "name": "Shapley",
     "description": "A game considered by the mathematician Lloyd Shapley. This game can be seen as a mirrored rock paper scissors game.",
-    "sources": "https://dl.acm.org/doi/10.5555/1018410.1018840",
+    "source": "https://dl.acm.org/doi/10.5555/1018410.1018840",
     "classes": [
       "2Player",
       "Intransitive",
@@ -428,7 +428,7 @@
   "SimpleInspection": {
     "name": "SimpleInspection",
     "description": "Consider a set S of n objects. A player Red chooses a subset of S with at most p objects, while a player Blue chooses a subset of S with at most q objects. If the intersection of the chosen sets is nonempty, the payoffs are 0.",
-    "sources": "https://www.rand.org/content/dam/rand/pubs/research_memoranda/2008/RM2972.pdf",
+    "source": "https://www.rand.org/content/dam/rand/pubs/research_memoranda/2008/RM2972.pdf",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -438,7 +438,7 @@
   "SmallPig": {
     "name": "SmallPig",
     "description": "Two pigs are put in a box with a button on one end and a feeder on the other end. When the button is pressed, the feeder gives 10 units of food. If the smaller pig presses the button, the large pig eats 9 units, leaving only one unit. If the large pig presses the button, the small pig will eat four units, leaving six. If they both choose to press the button, the small pig gets three units.",
-    "sources": "https://doi.org/10.1016/0003-3472(79)90033-2",
+    "source": "https://doi.org/10.1016/0003-3472(79)90033-2",
     "classes": [
       "2Player",
       "MatrixGame"
@@ -447,7 +447,7 @@
   "StagHunt": {
     "name": "StagHunt",
     "description": "Two hunters decide separately whether to hunt a stag or a hare. Hunting hare takes less effort and time, but it is not worth much and has less meat than a stag. Ideally, it would be better for both hunters to hunt stag together, but it involves risk for both hunters. However, both hunters know the only way to successfully hunt a stag is with the other's help.",
-    "sources": "https://doi.org/10.1093/owc/9780199555420.001.0001",
+    "source": "https://doi.org/10.1093/owc/9780199555420.001.0001",
     "classes": [
       "2Player",
       "Coordination",
@@ -458,7 +458,7 @@
   "TravelersDilemma": {
     "name": "TravelersDilemma",
     "description": "Air Wolfram loses two identical suitcases full of antiques belonging to two travelers. However, Air Wolfram is liable for a maximum of $100 per suitcase. To determine an honest appraised value of the antiques, a claims manager separates the travelers to avoid cooperation, and asks them to write down their estimates of the value of their suitcase at no less than $2 and no larger than $100. If both write down the same number, the airline will reimburse both travelers that amount. However, if one traveler writes down a number A  lower than the other number B, then the traveler who wrote down A will be reimbursed A+2, and the traveler who wrote down the larger number will be paid B+2.",
-    "sources": "https://www.jstor.org/stable/2117865",
+    "source": "https://www.jstor.org/stable/2117865",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -468,7 +468,7 @@
   "TreeBattleOfTheBismarck": {
     "name": "TreeBattleOfTheBismarck",
     "description": "In the South Pacific Ocean in 1943, Admiral Kimura was ordered to transport Japanese troops across the Bismarck Sea to New Guinea, but he knew the American Admiral Kenney wanted to bomb the troop transports. Two decisions must take place simultaneously: Kimura must choose between a shorter or a longer route for his troops, while Kenney must decide on which route to send his planes to look for the Japanese troops. If Kenney sends his planes to the wrong route, he can recall them, but that makes his troops lose time.",
-    "sources": "https://doi.org/10.1287/opre.2.4.365",
+    "source": "https://doi.org/10.1287/opre.2.4.365",
     "classes": [
       "TreeGame"
     ]
@@ -476,7 +476,7 @@
   "TreeMatchingPennies": {
     "name": "TreeMatchingPennies",
     "description": "Two players make a bet. Each player chooses either Head or Tail. If the choices differ, player 1 pays player 2 a dollar; if they are the same, player 2 pays player 1 a dollar.",
-    "sources": "https://press.princeton.edu/books/paperback/9780691003955/game-theory-for-applied-economists",
+    "source": "https://press.princeton.edu/books/paperback/9780691003955/game-theory-for-applied-economists",
     "classes": [
       "TreeGame"
     ]
@@ -484,7 +484,7 @@
   "VolunteersDilemma": {
     "name": "VolunteersDilemma",
     "description": "The electricity supply has failed for an entire neighborhood. If at least one volunteer notifies the electricity company at some cost, every player benefits. If no one volunteers, the worst payoff is given to all players. Thus, there needs to be a volunteer, but all players benefit from not volunteering.",
-    "sources": "https://doi.org/10.1063/1.2809809",
+    "source": "https://doi.org/10.1063/1.2809809",
     "classes": [
       "MatrixGame",
       "Military",
@@ -496,7 +496,7 @@
   "Welfare": {
     "name": "Welfare",
     "description": "Government wishes to aid an unemployed person only if that person searches for work. On the other hand, the unemployed person searches for work only if that person does not receive government aid.",
-    "sources": "https://doi.org/10.2307/2233782",
+    "source": "https://doi.org/10.2307/2233782",
     "classes": [
       "2Player",
       "MatrixGame",
@@ -507,7 +507,7 @@
   "ZeroSumRandom": {
     "name": "ZeroSumRandom",
     "description": "A zero game with randomly assigned payoffs.",
-    "sources": "https://doi.org/10.2307/3607027",
+    "source": "https://doi.org/10.2307/3607027",
     "classes": [
       "2Player",
       "MatrixGame",

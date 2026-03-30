@@ -1,0 +1,21 @@
+{
+    "name": "Math::GameTheory",
+    "description": "Facilitation of Game theory models, experiments, and studies.",
+    "version": "0.0.1",
+    "raku": "6.*",
+    "authors": [
+        "Anton Antonov"
+    ],
+    "auth": "zef:antononcube",
+    "depends": [
+        "JSON::Fast:ver<0.19+>"
+    ],
+    "provides": {
+        "Math::GameTheory": "lib/Math/GameTheory.rakumod"
+    },
+    "resources": [
+        "game-data.json"
+    ],
+    "license": "MIT",
+    "source-url": "https://github.com/antononcube/Raku-Math-GameTheory"
+}
