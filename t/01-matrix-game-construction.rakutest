@@ -1,0 +1,62 @@
+use v6.d;
+use Test;
+use Math::GameTheory::MatrixGame;
+
+plan *;
+
+my ($all, $half, $dis) = (2, 1, 0);
+
+my $game = Math::GameTheory::MatrixGame.new(
+    name => '3Coordination',
+    payoff-array => [
+        [
+            [[$all, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $dis]],
+            [[$dis, $dis, $dis], [$dis, $half, $dis], [$dis, $dis, $dis]],
+            [[$dis, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $half]],
+        ],
+        [
+            [[$half, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $dis]],
+            [[$dis, $dis, $dis], [$dis, $all, $dis], [$dis, $dis, $dis]],
+            [[$dis, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $half]],
+        ],
+        [
+            [[$half, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $dis]],
+            [[$dis, $dis, $dis], [$dis, $half, $dis], [$dis, $dis, $dis]],
+            [[$dis, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $all]],
+        ],
+    ],
+    game-action-labels => [
+        ['Churchill', 'Roosevelt', 'Stalin'],
+        ['Churchill', 'Roosevelt', 'Stalin'],
+        ['Churchill', 'Roosevelt', 'Stalin'],
+    ],
+    game-player-labels => ['Churchill', 'Roosevelt', 'Stalin'],
+);
+
+is $game.name, '3Coordination', 'name is accepted by the constructor';
+
+is-deeply $game.game-player-labels,
+    ['Churchill', 'Roosevelt', 'Stalin'],
+    'game-player-labels are stored';
+
+is-deeply $game.game-player-labels,
+    ['Churchill', 'Roosevelt', 'Stalin'],
+    'game-player-labels default to the layer labels';
+
+is-deeply $game.component-payoff-array('Churchill'),
+    [
+        [[2, 0, 0], [0, 0, 0], [0, 0, 0]],
+        [[1, 0, 0], [0, 0, 0], [0, 0, 0]],
+        [[1, 0, 0], [0, 0, 0], [0, 0, 0]],
+    ],
+    'component-payoff-array works with layer-derived player labels';
+
+is-deeply $game.min-max-payoffs,
+    {
+        Churchill => { min => 0, max => 2 },
+        Roosevelt => { min => 0, max => 2 },
+        Stalin    => { min => 0, max => 2 },
+    },
+    'min-max-payoffs works for the 3-player constructor example';
+
+done-testing;

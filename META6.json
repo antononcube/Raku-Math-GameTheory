@@ -11,7 +11,8 @@
         "JSON::Fast:ver<0.19+>"
     ],
     "provides": {
-        "Math::GameTheory": "lib/Math/GameTheory.rakumod"
+        "Math::GameTheory": "lib/Math/GameTheory.rakumod",
+        "Math::GameTheory::MatrixGame": "lib/Math/GameTheory/MatrixGame.rakumod"
     },
     "resources": [
         "game-data.json"
