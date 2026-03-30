@@ -9,7 +9,6 @@ class Math::GameTheory::MatrixGame {
     has @.payoff-array is required;
     has @.game-player-labels;
     has @.game-action-labels;
-    has Bool:D $.tree-game = False;
 
     submethod BUILD(
             :$!name = Whatever,
@@ -68,6 +67,10 @@ class Math::GameTheory::MatrixGame {
                     }
                 }
                 ).Hash
+    }
+
+    method tree-game() {
+        ## Convert a matrix game to a tree game
     }
 
     method !player-index(Str:D $player-label) {
