@@ -39,15 +39,27 @@ is-deeply $game.game-player-labels,
     ['Churchill', 'Roosevelt', 'Stalin'],
     'game-player-labels are stored';
 
-is-deeply $game.game-player-labels,
-    ['Churchill', 'Roosevelt', 'Stalin'],
-    'game-player-labels default to the layer labels';
+is-deeply $game.game-action-labels,
+        [
+            ['Churchill', 'Roosevelt', 'Stalin'],
+            ['Churchill', 'Roosevelt', 'Stalin'],
+            ['Churchill', 'Roosevelt', 'Stalin'],
+        ],
+    'game-action-labels are stored';
 
 is-deeply $game.component-payoff-array('Churchill'),
+        [
+            [[2,0,0],[0,0,0],[0,0,0]],
+            [[1,0,0],[0,0,0],[0,0,0]],
+            [[1,0,0],[0,0,0],[0,0,0]]
+        ],
+        'component-payoff-array works with layer-derived player labels';
+
+is-deeply $game.component-payoff-array()<Churchill Roosevelt Stalin>.Array,
     [
-        [[2, 0, 0], [0, 0, 0], [0, 0, 0]],
-        [[1, 0, 0], [0, 0, 0], [0, 0, 0]],
-        [[1, 0, 0], [0, 0, 0], [0, 0, 0]],
+        [[[2,0,0],[0,0,0],[0,0,0]],[[1,0,0],[0,0,0],[0,0,0]],[[1,0,0],[0,0,0],[0,0,0]]],
+        [[[0,0,0],[0,1,0],[0,0,0]],[[0,0,0],[0,2,0],[0,0,0]],[[0,0,0],[0,1,0],[0,0,0]]],
+        [[[0,0,0],[0,0,0],[0,0,1]],[[0,0,0],[0,0,0],[0,0,1]],[[0,0,0],[0,0,0],[0,0,2]]]
     ],
     'component-payoff-array works with layer-derived player labels';
 
