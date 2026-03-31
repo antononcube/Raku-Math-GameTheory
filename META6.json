@@ -8,10 +8,12 @@
     ],
     "auth": "zef:antononcube",
     "depends": [
-        "JSON::Fast:ver<0.19+>"
+        "JSON::Fast:ver<0.19+>",
+        "Statistics::Distributions:ver<0.1.7>"
     ],
     "provides": {
         "Math::GameTheory": "lib/Math/GameTheory.rakumod",
+        "Math::GameTheory::Creators": "lib/Math/GameTheory/Creators.rakumod",
         "Math::GameTheory::MatrixGame": "lib/Math/GameTheory/MatrixGame.rakumod"
     },
     "resources": [
