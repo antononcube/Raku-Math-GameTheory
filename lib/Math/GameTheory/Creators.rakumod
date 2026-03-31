@@ -4,6 +4,10 @@ use Statistics::Distributions;
 
 our proto sub matrix-game(Str:D $name, |) is export {*}
 
+#==========================================================
+# Name-only creators
+#==========================================================
+
 #| ArmsRaces matrix game
 our multi sub matrix-game("ArmsRaces") {
     my $n = 1;
@@ -174,14 +178,14 @@ our multi sub matrix-game("Exponential") {
 #| Greedy matrix game
 our multi sub matrix-game("Greedy") {
     my ($i1, $i2, $p, $n) = (0, 1, 2, 4);
-    my @l = 0..^$n;
+    my @l = ^$n;
     my @r = @l.combinations(1..^$p.min($n));
     my @b = @l.combinations(1..$n);
 
     my @payoff-array;
     for @r.kv -> $i, $r-set {
         for @b.kv -> $j, $b-set {
-            if $r-set.grep: * ∈ $b-set {
+            if $r-set.grep(* ∈ $b-set) {
                 @payoff-array[$i][$j] = [$i1, $i1];
             } else {
                 @payoff-array[$i][$j] = [$i2, $i2];
@@ -443,6 +447,10 @@ our multi sub matrix-game("Compound", Int:D $n where * >= 1) {
             game-action-labels => [(["Cooperate", "Defect"] xx $n).flat]
             );
 }
+
+#==========================================================
+# Additional parameters creators
+#==========================================================
 
 #| DinersDilemma matrix game
 our multi sub matrix-game("DinersDilemma", Int $n = 2) {
