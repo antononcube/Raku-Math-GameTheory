@@ -1,5 +1,6 @@
 use v6.d;
 use Math::GameTheory;
+use Math::GameTheory::MatrixGame;
 use Test;
 
 plan *;
@@ -13,5 +14,7 @@ isa-ok game-theory-data('DinersDilemma', 'Description'), Str:D;
 isa-ok game-theory-data('DinersDilemma', 'Source'), Str:D;
 
 isa-ok game-theory-data('DinersDilemma', 'Classes'), Positional:D;
+
+isa-ok game-theory-data('Chicken'), Math::GameTheory::MatrixGame:D, 'matrix game object';
 
 done-testing;

@@ -1,8 +1,15 @@
 unit module Math::GameTheory::Creators;
 
+use Math::GameTheory::MatrixGame;
 use Statistics::Distributions;
 
 our proto sub matrix-game(Str:D $name, |) is export {*}
+
+#| Generic
+our multi sub matrix-game(Str:D $name, *@args, *%args) {
+    note "Unknown game name: $name.";
+    return Nil;
+}
 
 #==========================================================
 # Name-only creators

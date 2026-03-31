@@ -1,7 +1,14 @@
 use v6.d;
-use JSON::Fast;
 
 unit module Math::GameTheory;
+
+use JSON::Fast;
+use Math::GameTheory::MatrixGame;
+use Math::GameTheory::Creators;
+
+#==========================================================
+# Game data
+#==========================================================
 
 my %game-data;
 our sub get-game-data() {
@@ -35,8 +42,13 @@ our multi sub game-theory-data(Str:D $name, 'Classes') {
     get-game-data(){$name}<classes> // Whatever;
 }
 
-our multi sub game-theory-data(Str:D $name) {
-    get-game-data(){$name} // Whatever
+our multi sub game-theory-data(Str:D $name, *@args, *%args) {
+    my $obj = Math::GameTheory::Creators::matrix-game($name, |@args, |%args);
+    if $obj {
+        $obj.description = game-theory-data($name, 'Description');
+        $obj.source = game-theory-data($name, 'Source');
+    }
+    return $obj;
 }
 
 our multi sub game-theory-data(Str:D $name, Int:D $n) {
@@ -53,3 +65,7 @@ our multi sub game-theory-data(Str:D $name, Str:D $class) {
         $class ∈ get-game-data(){$name}<classes>
     } else { Whatever }
 }
+
+#==========================================================
+# Game data
+#==========================================================
