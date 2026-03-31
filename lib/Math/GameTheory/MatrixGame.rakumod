@@ -51,7 +51,7 @@ class Math::GameTheory::MatrixGame {
 
     #| Gives the list of possible payoffs for each player:
     method payoff-data() {
-
+        self.component-payoff-array.map({ $_.key => $_.value.flat(:hammer).unique.sort }).Hash;
     }
 
     #| Min-max payoffs of the game

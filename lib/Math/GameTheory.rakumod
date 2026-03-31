@@ -45,6 +45,7 @@ our multi sub game-theory-data(Str:D $name, 'Classes') {
 our multi sub game-theory-data(Str:D $name, *@args, *%args) {
     my $obj = Math::GameTheory::Creators::matrix-game($name, |@args, |%args);
     if $obj {
+        $obj.name = $name;
         $obj.description = game-theory-data($name, 'Description');
         $obj.source = game-theory-data($name, 'Source');
     }
