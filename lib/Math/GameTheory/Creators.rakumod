@@ -19,7 +19,7 @@ our multi sub matrix-game("ArmsRaces") {
     }
 
     return Math::GameTheory::MatrixGame.new(
-        payoff-array => @payoff-array,
+        :@payoff-array,
         game-action-labels => [0..$n, 0..$n]
     )
 }
@@ -79,7 +79,7 @@ our multi sub matrix-game("BertrandOligopoly") {
     }
 
     return Math::GameTheory::MatrixGame.new(
-            payoff-array => @payoff-array,
+            :@payoff-array,
             game-action-labels => @prices
             )
 }
@@ -190,7 +190,7 @@ our multi sub matrix-game("Greedy") {
     }
 
     return Math::GameTheory::MatrixGame.new(
-            payoff-array => @payoff-array,
+            :@payoff-array,
             game-player-labels => ["Red", "Blue"],
             game-action-labels => [@r, @b]
             )
@@ -354,7 +354,7 @@ our multi sub matrix-game("SimpleInspection") {
     }
 
     return Math::GameTheory::MatrixGame.new(
-            payoff-array => @payoff-array,
+            :@payoff-array,
             game-player-labels => ["Red", "Blue"],
             game-action-labels => [@r, @b]
             )
@@ -399,7 +399,7 @@ our multi sub matrix-game("TravelersDilemma") {
     }
 
     return Math::GameTheory::MatrixGame.new(
-            payoff-array => @payoff-array
+            :@payoff-array
             )
 }
 
@@ -439,7 +439,7 @@ our multi sub matrix-game("Compound", Int:D $n where * >= 1) {
     }
 
     return Math::GameTheory::MatrixGame.new(
-            payoff-array => @payoff-array,
+            :@payoff-array,
             game-action-labels => [(["Cooperate", "Defect"] xx $n).flat]
             );
 }
@@ -460,11 +460,15 @@ our multi sub matrix-game("DinersDilemma", Int $n = 2) {
         @payoff-array[$i][$j] = $payoff-f([$i + 1, $j + 1]);
     }
 
-    return Math::GameTheory::MatrixGame.new(payoff-array => @payoff-array);
+    return Math::GameTheory::MatrixGame.new(:@payoff-array);
 }
 
 #| Random matrix game
 our multi sub matrix-game("Random", Int:D $n where * >= 1) {
-    my @payoff-array = random-variate(NormalDistribution.new, [$n, $n + 1]);
-    return Math::GameTheory::MatrixGame.new(payoff-array => @payoff-array);
+    my @sizes = $n xx ($n + 1);
+    my @payoff-array = random-variate(NormalDistribution.new, [*] @sizes);
+    for @sizes.tail(*-1).reverse -> $s {
+        @payoff-array .= rotor($s)
+    }
+    return Math::GameTheory::MatrixGame.new(:@payoff-array);
 }
