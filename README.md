@@ -28,10 +28,11 @@ All games known by the package "Math::GameTheory":
 use Math::GameTheory;
 
 say "Total number of known games: {game-theory-data().elems}";
-game-theory-data()
+say game-theory-data();
 ```
 ```
 # Total number of known games: 52
+# (3Coordination ArmsRaces BachOrStravinsky BattleOfTheBismarck BattleOfTheSexes BeerQuiche BertrandOligopoly BuyingStock Centipede Chicken ColonelBlotto Compound Contribution Convergence CournotOligopoly DangerousCoordination DinersDilemma Discoordination ElFarolBar Entry Escalation Exponential Greedy GuessTwoThirdsAverage HawkDove Hero Inspection LinearCournotDuopoly LinearCournotOligopoly MatchingPennies Morra MultivariateRandom NashPoker OPD OddsAndEvens OptionalPrisonersDilemma PlatoniaDilemma PrisonersDilemma PureCoordination Random Revolution RockPaperScissors Shapley SimpleInspection SmallPig StagHunt TravelersDilemma TreeBattleOfTheBismarck TreeMatchingPennies VolunteersDilemma Welfare ZeroSumRandom)
 ```
 
 Games and their classes:
@@ -55,13 +56,13 @@ sink records-summary(@dsGames)
 # +------------------+--------------------------+
 # | property         | name                     |
 # +------------------+--------------------------+
-# | MatrixGame => 42 | MatchingPennies   => 5   |
-# | 2Player    => 26 | VolunteersDilemma => 5   |
-# | Symmetric  => 24 | RockPaperScissors => 5   |
-# | NPlayer    => 12 | PureCoordination  => 5   |
-# | Social     => 10 | ZeroSumRandom     => 5   |
-# | TreeGame   => 7  | PrisonersDilemma  => 4   |
-# | Recreation => 6  | 3Coordination     => 4   |
+# | MatrixGame => 42 | VolunteersDilemma => 5   |
+# | 2Player    => 26 | RockPaperScissors => 5   |
+# | Symmetric  => 24 | MatchingPennies   => 5   |
+# | NPlayer    => 12 | ZeroSumRandom     => 5   |
+# | Social     => 10 | PureCoordination  => 5   |
+# | TreeGame   => 7  | Shapley           => 4   |
+# | Recreation => 6  | Welfare           => 4   |
 # | (Other)    => 26 | (Other)           => 120 |
 # +------------------+--------------------------+
 ```
@@ -160,7 +161,7 @@ Get the game "3Coordination" (provided by the package):
 my $obj = game-theory-data('3Coordination')
 ```
 ```
-# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Roosevelt(3), :Stalin(3), :Churchill(3))))
+# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Roosevelt(3), :Churchill(3), :Stalin(3))))
 ```
 
 ```raku

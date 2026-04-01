@@ -28,7 +28,7 @@ All games known by the package "Math::GameTheory":
 use Math::GameTheory;
 
 say "Total number of known games: {game-theory-data().elems}";
-game-theory-data()
+say game-theory-data();
 ```
 
 Games and their classes:
