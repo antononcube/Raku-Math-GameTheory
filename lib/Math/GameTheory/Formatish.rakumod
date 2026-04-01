@@ -16,7 +16,8 @@ role Math::GameTheory::Formatish {
             Str:D :$player2-color is copy = 'none',
             Str:D :$player1-font-color is copy = 'silver',
             Str:D :$player2-font-color is copy = 'silver',
-            :$theme is copy = Whatever
+            :$theme is copy = Whatever,
+            Bool:D :$caption = True
     ) {
 
         if $theme ~~ Str:D {
@@ -78,6 +79,8 @@ role Math::GameTheory::Formatish {
 <th style="background:linear-gradient(to bottom, {$p2-bg} 50%, {$p1-bg} 50%);"><div style="margin-left:2em;text-align:right;padding:0.1em 0.4em;border-radius:0.2em;display:inline-block;color:{$p2-fg};">{$p2}</div><div style="margin-right:2em;text-align:left"><br /><span style="padding:0.1em 0.4em;border-radius:0.2em;display:inline-block;color:{$p1-fg};">{$p1}</span></div>
 </th>
 END
+
+        $html .= subst(/ '<caption' .*? '</caption>'/) unless $caption;
 
         for @col-actions -> $action {
             $html ~= qq:to/END/;
