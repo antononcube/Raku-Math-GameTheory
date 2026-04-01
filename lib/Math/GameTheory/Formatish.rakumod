@@ -2,7 +2,7 @@ use v6.d;
 
 role Math::GameTheory::Formatish {
 
-    #| WL representation of a game
+    #| WL representation of the game
     method wl() {
         my $arr = self.payoff-array.raku.trans(['[' => '{', ']' => '}']);
         my $actLables = self.game-action-labels.raku.trans(['[' => '{', ']' => '}']);

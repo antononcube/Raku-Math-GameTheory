@@ -16,6 +16,7 @@ our sub get-game-data() {
     %game-data = from-json(%?RESOURCES<game-data.json>.IO.slurp)
 }
 
+#| Generates well known games in game theory.
 our proto sub game-theory-data(|) is export {*}
 
 our multi sub game-theory-data() {
