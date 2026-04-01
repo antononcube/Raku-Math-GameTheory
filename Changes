@@ -1,0 +1,7 @@
+Revision history of the Raku package "Math::GameTheory".
+
+0.0.1 2026-04-01
+    - First version
+        - Has matrix games only
+        - Provides `Math::GameTheory::MatrixGame` class
+        - HTML-tabulation of matrix games
