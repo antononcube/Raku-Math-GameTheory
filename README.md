@@ -53,18 +53,18 @@ use Data::Summarizers;
 sink records-summary(@dsGames)
 ```
 ```
-# +------------------+--------------------------+
-# | property         | name                     |
-# +------------------+--------------------------+
-# | MatrixGame => 42 | VolunteersDilemma => 5   |
-# | 2Player    => 26 | RockPaperScissors => 5   |
-# | Symmetric  => 24 | MatchingPennies   => 5   |
-# | NPlayer    => 12 | ZeroSumRandom     => 5   |
-# | Social     => 10 | PureCoordination  => 5   |
-# | TreeGame   => 7  | Shapley           => 4   |
-# | Recreation => 6  | Welfare           => 4   |
-# | (Other)    => 26 | (Other)           => 120 |
-# +------------------+--------------------------+
+# +--------------------------+------------------+
+# | name                     | property         |
+# +--------------------------+------------------+
+# | RockPaperScissors => 5   | MatrixGame => 42 |
+# | PureCoordination  => 5   | 2Player    => 26 |
+# | MatchingPennies   => 5   | Symmetric  => 24 |
+# | VolunteersDilemma => 5   | NPlayer    => 12 |
+# | ZeroSumRandom     => 5   | Social     => 10 |
+# | Chicken           => 4   | TreeGame   => 7  |
+# | DinersDilemma     => 4   | Recreation => 6  |
+# | (Other)           => 120 | (Other)    => 26 |
+# +--------------------------+------------------+
 ```
 
 Here is a "taxonomy tree" like breakdown:
@@ -161,7 +161,7 @@ Get the game "3Coordination" (provided by the package):
 my $obj = game-theory-data('3Coordination')
 ```
 ```
-# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Roosevelt(3), :Churchill(3), :Stalin(3))))
+# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Stalin(3), :Churchill(3), :Roosevelt(3))))
 ```
 
 ```raku
@@ -364,12 +364,20 @@ $game.html(theme => 'default')
 ## TODO
 
 - [ ] TODO Implementation
-  - [X] DONE Games data JSON file and corresponding retrieval (multi-)sub
+  - [ ] TODO Retrieval and creation of games
+    - [X] DONE Games data JSON file and corresponding retrieval (multi-)sub
+    - [ ] TODO Retrieving games using regexes
+    - [ ] TODO Using properties with any case
   - [ ] TODO Matrix games
     - [X] DONE `MatrixGame` class
     - [X] DONE HTML format of matrix game dataset
     - [X] DONE Wolfram Language (WL) representation
     - [ ] TODO Payoff functions
+      - [ ] TODO Expectation
+      - [ ] TODO MarginalDistribution
+      - [ ] TODO MultivariateDistribution
+      - [ ] TODO Variance
+      - [ ] TODO Simulation
     - [ ] TODO Simpler zero-sum games initialization
   - [ ] TODO Tree games
     - [ ] TODO `TreeGame` class
