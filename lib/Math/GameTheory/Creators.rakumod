@@ -15,6 +15,38 @@ our multi sub matrix-game(Str:D $name, *@args, *%args) {
 # Name-only creators
 #==========================================================
 
+#| 3Coordination matrix game
+our multi sub matrix-game("3Coordination") {
+    my ($all, $half, $dis) = (2, 1, 0);
+
+    return Math::GameTheory::MatrixGame.new(
+            payoff-array => [
+                [
+                    [[$all, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $dis]],
+                    [[$dis, $dis, $dis], [$dis, $half, $dis], [$dis, $dis, $dis]],
+                    [[$dis, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $half]],
+                ],
+                [
+                    [[$half, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $dis]],
+                    [[$dis, $dis, $dis], [$dis, $all, $dis], [$dis, $dis, $dis]],
+                    [[$dis, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $half]],
+                ],
+                [
+                    [[$half, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $dis]],
+                    [[$dis, $dis, $dis], [$dis, $half, $dis], [$dis, $dis, $dis]],
+                    [[$dis, $dis, $dis], [$dis, $dis, $dis], [$dis, $dis, $all]],
+                ],
+            ],
+            game-action-labels => [
+                ['Churchill', 'Roosevelt', 'Stalin'],
+                ['Churchill', 'Roosevelt', 'Stalin'],
+                ['Churchill', 'Roosevelt', 'Stalin'],
+            ],
+            game-player-labels => ['Churchill', 'Roosevelt', 'Stalin'],
+            );
+}
+
+
 #| ArmsRaces matrix game
 our multi sub matrix-game("ArmsRaces") {
     my $n = 1;
