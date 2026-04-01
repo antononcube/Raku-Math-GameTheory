@@ -12,51 +12,33 @@ role Math::GameTheory::Formatish {
 
     #| HTML representation of the game
     method html(
-            Str:D :$player1-color is copy = 'none',
-            Str:D :$player2-color is copy = 'none',
-            Str:D :$player1-font-color is copy = 'silver',
-            Str:D :$player2-font-color is copy = 'silver',
+            :$colors is copy = Whatever,
+            :$font-color is copy = Whatever,
             :$theme is copy = Whatever,
             Bool:D :$caption = True
     ) {
 
         if $theme ~~ Str:D {
             if $theme.lc ∈ <mono monochrome black-and-white bw blackandwhite> {
-                $player1-color = '#1f1f1f';
-                $player2-color = '#1f1f1f';
-                $player1-font-color = 'gainsboro';
-                $player2-font-color = 'gainsboro';
+                $colors = generate-colors(self.game-player-labels.elems);
+                $font-color = 'gainsboro';
             } elsif $theme.lc ∈ <default wl> {
-                $player1-color = '#9ecce6';
-                $player2-color = '#f9cf92';
-                $player1-font-color = '#666666';
-                $player2-font-color = '#666666';
+                $colors = <#9ecce6 #f9cf92 #b7d7a8>,
+                $font-color = '#666666';
             }
         }
+
+        $colors = ('black' xx self.game-player-labels) unless $colors ~~ Positional:D && $colors.all ~~ Str:D;
+        $font-color = 'silver' unless $font-color ~~ Str:D;
 
         my @player-labels = self.game-player-labels;
         my @row-actions = ((self.game-action-labels[0] // []).list).Array;
         my @col-actions = ((self.game-action-labels[1] // []).list).Array;
 
-        die "HTML rendering currently supports 2-player matrix games."
-        unless @player-labels.elems == 2;
-
-        my sub esc($text) {
-            $text.Str
-                    .subst('&', '&amp;', :g)
-                    .subst('<', '&lt;', :g)
-                    .subst('>', '&gt;', :g)
-                    .subst('"', '&quot;', :g)
-                    .subst("'", '&#39;', :g)
-        }
-
         my $name = self.name ~~ Whatever ?? '' !! esc(self.name);
-        my $p1 = esc(@player-labels[0] // 'Player 1');
-        my $p2 = esc(@player-labels[1] // 'Player 2');
-        my $p1-bg = esc($player1-color);
-        my $p2-bg = esc($player2-color);
-        my $p1-fg = esc($player1-font-color);
-        my $p2-fg = esc($player2-font-color);
+        @player-labels .= map({ esc($_) });
+        @row-actions .= map({ esc($_) });
+        @col-actions .= map({ esc($_) });
         my $max-payoff-len = 1;
 
         for self.payoff-array -> @row {
@@ -68,54 +50,128 @@ role Math::GameTheory::Formatish {
             }
         }
 
-        my $html = qq:to/END/;
-<table style="margin:0 auto;text-align:center;">
-<tbody><tr>
-<td>
-<table>
-<caption align=bottom><i>{$name}</i>
-</caption>
-<tbody><tr>
-<th style="background:linear-gradient(to bottom, {$p2-bg} 50%, {$p1-bg} 50%);"><div style="margin-left:2em;text-align:right;padding:0.1em 0.4em;border-radius:0.2em;display:inline-block;color:{$p2-fg};">{$p2}</div><div style="margin-right:2em;text-align:left"><br /><span style="padding:0.1em 0.4em;border-radius:0.2em;display:inline-block;color:{$p1-fg};">{$p1}</span></div>
-</th>
-END
+        my %actionIndex = self.game-action-labels.head.Array Z=> ( 0 ... ^self.game-action-labels.head.elems).Array;
 
-        $html .= subst(/ '<caption' .*? '</caption>'/) unless $caption;
-
-        for @col-actions -> $action {
-            $html ~= qq:to/END/;
-<th style="background-color:{$p2-bg};color:{$p2-fg};"><i>{esc($action)}</i>
-</th>
-END
+        sub game-payoff(@profile) {
+            reduce({$^a[$^b]}, self.payoff-array, |%actionIndex{|@profile})
         }
 
-        $html ~= "</tr>\n";
+        return payoff-table-html(
+                @player-labels,
+                @row-actions,
+                &game-payoff,
+                :$colors,
+                :$font-color,
+                caption => $caption ?? $name !! '');
+    }
 
-        for self.payoff-array.kv -> $row-index, @row {
-            my $row-label = esc(@row-actions[$row-index] // "A{$row-index + 1}");
-            $html ~= qq:to/END/;
-<tr>
-<th style="background-color:{$p1-bg};color:{$p1-fg};"><i>{$row-label}</i>
-</th>
-END
+    sub generate-colors(Int $n, $start = 0x1f1f1f, $end = 0x4f4f4f) {
+        my @colors;
+        my $step = ($end - $start) div ($n - 1);
 
-            for @row -> @payoff {
-                my $v1 = esc(sprintf('%*s', $max-payoff-len, (@payoff[0] // '').Str));
-                my $v2 = esc(sprintf('%*s', $max-payoff-len, (@payoff[1] // '').Str));
-                my $payoff = '<table style="margin:0 auto;border-collapse:collapse;"><tbody><tr>'
-                           ~ '<td style="background-color:' ~ $p1-bg ~ ';color:' ~ $p1-fg ~ ';padding:0.1em 0.4em;width:' ~ $max-payoff-len ~ 'ch;text-align:right;white-space:pre;font-family:monospace;">' ~ $v1 ~ '</td>'
-                           ~ '<td style="background-color:' ~ $p2-bg ~ ';color:' ~ $p2-fg ~ ';padding:0.1em 0.4em;width:' ~ $max-payoff-len ~ 'ch;text-align:right;white-space:pre;font-family:monospace;">' ~ $v2 ~ '</td>'
-                           ~ '</tr></tbody></table>';
-                $html ~= qq:to/END/;
-<td>{$payoff}
-</td>
-END
+        for ^ $n -> $i {
+            my $color-value = $start + $i * $step;
+            my $color-hex = sprintf("#%06x", $color-value);
+            @colors.push($color-hex);
+        }
+        return @colors;
+    }
+
+    sub esc($text) {
+        $text.Str
+                .subst('&', '&amp;', :g)
+                .subst('<', '&lt;', :g)
+                .subst('>', '&gt;', :g)
+                .subst('"', '&quot;', :g)
+                .subst("'", '&#39;', :g)
+    }
+
+    sub cartesian-tuples(@lists) {
+        if @lists {
+            my @rest = cartesian-tuples(@lists[1..*]);
+            gather for @lists[0].list -> $x {
+                for @rest -> @r {
+                    take [$x, |@r];
+                }
+            }
+        } else {
+            [(),]
+        }
+    }
+
+    sub payoff-table-html(
+            @players,
+            @strategies,
+            &payoff-fn,
+            :@colors = <#b9d8ea #f3cf95 #b7d7a8>,
+            :$font-color = 'black',
+            :$border = 1,
+            :$caption = ''
+                          ) {
+        die "At least one player is required." unless @players.elems;
+        die "At least one strategy is required." unless @strategies.elems;
+
+        my $n = @players.elems;
+        my $m = @strategies.elems;
+
+        sub color-for($i) {
+            @colors[$i % @colors.elems]
+        }
+
+        my @col-profiles =
+                $n == 1
+                ?? [(),]
+                !! cartesian-tuples(([ @strategies ] xx ($n - 1)));
+
+        my $html = '';
+
+        $html ~= "<table border=\"$border\" cellspacing=\"0\" cellpadding=\"6\">\n";
+        if $caption {
+            $html ~= "  <caption align=bottom><i>{$caption}</i></caption>";
+        }
+
+        # Header rows for players 2..n
+        for 1 ..^ $n -> $level {
+            $html ~= "  <tr>\n";
+
+
+            $html ~= "    <th bgcolor=\"" ~ color-for($n-1) ~ "\" style=\"color:{$font-color};\"></th>\n";
+
+            my $repeat-block = $m ** ($n - $level - 1);
+            my $span = $n * $repeat-block;
+
+            for ^($m ** ($level - 1)) {
+                for @strategies -> $s {
+                    $html ~= "    <th bgcolor=\"{color-for($n-$level)}\" colspan=\"$span\" align=\"center\" style=\"color:{$font-color};\">{$s}</th>\n";
+                }
             }
 
-            $html ~= "</tr>\n";
+            $html ~= "  </tr>\n";
         }
 
-        $html ~= "</tbody></table>\n</td>\n</tr></tbody></table>";
-        $html
+        # Data rows
+        for @strategies -> $row-strategy {
+
+            $html ~= "  <tr>\n";
+            $html ~= "    <th bgcolor=\"" ~ color-for(0) ~ "\" align=\"left\" style=\"color:{$font-color};\">{$row-strategy}</th>\n";
+
+            for @col-profiles -> @rest-profile {
+                my @profile = $row-strategy, |@rest-profile;
+                my @payoff = |payoff-fn(@profile);
+
+                die "Payoff vector must have $n elements for profile {@profile.raku}"
+                unless @payoff.elems == $n;
+
+                for ^$n -> $i {
+                    my $bg = color-for($i);
+                    $html ~= "    <td bgcolor=\"$bg\" align=\"right\" style=\"color:{$font-color};\">{@payoff[$i]}</td>\n";
+                }
+            }
+
+            $html ~= "  </tr>\n";
+        }
+
+        $html ~= "</table>";
+        return $html;
     }
 }
