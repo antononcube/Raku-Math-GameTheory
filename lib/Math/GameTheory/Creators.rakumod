@@ -431,7 +431,7 @@ our multi sub matrix-game("TravelersDilemma") {
     my ($k, $min, $d) = (5, 2, 1);
 
     sub f($x, $y) {
-        return $min($x, $y) + 2 * ($y - $x).sign;
+        return min($x, $y) + 2 * ($y - $x).sign;
     }
 
     my @payoff-array;
@@ -441,9 +441,7 @@ our multi sub matrix-game("TravelersDilemma") {
         }
     }
 
-    return Math::GameTheory::MatrixGame.new(
-            :@payoff-array
-            )
+    return Math::GameTheory::MatrixGame.new(:@payoff-array)
 }
 
 #| Welfare matrix game
