@@ -14,22 +14,22 @@ role Math::GameTheory::MatrixGame::Formatish {
     method html(
             :$colors is copy = Whatever,
             :$font-color is copy = Whatever,
-            :$theme is copy = Whatever,
+            :$theme is copy = 'default',
             Bool:D :$caption = True
     ) {
 
-        if $theme ~~ Str:D {
-            if $theme.lc ∈ <mono monochrome black-and-white bw blackandwhite> {
-                $colors = generate-colors(self.game-player-labels.elems);
-                $font-color = 'gainsboro';
-            } elsif $theme.lc ∈ <default wl> {
-                $colors = <#9ecce6 #f9cf92 #b7d7a8>,
-                $font-color = '#666666';
-            }
-        }
+        if $theme.isa(Whatever) { $theme = 'default'}
 
-        $colors = ('black' xx self.game-player-labels) unless $colors ~~ Positional:D && $colors.all ~~ Str:D;
-        $font-color = 'silver' unless $font-color ~~ Str:D;
+        if $theme.lc ∈ <grayscale gray-scale greyscale grey-scale gray grey> {
+            $colors = generate-colors(self.game-player-labels.elems);
+            $font-color = 'gainsboro';
+        } elsif $theme.lc ∈ <mono monochrome black-and-white bw blackandwhite> {
+            $colors = ('black' xx self.game-player-labels) unless $colors ~~ Positional:D && $colors.all ~~ Str:D;
+            $font-color = 'silver' unless $font-color ~~ Str:D;
+        } elsif $theme.lc ∈ <default wl> {
+            $colors = <#9ecce6 #f9cf92 #b7d7a8>,
+            $font-color = '#666666';
+        }
 
         my @player-labels = self.game-player-labels;
         my @row-actions = ((self.game-action-labels[0] // []).list).Array;
