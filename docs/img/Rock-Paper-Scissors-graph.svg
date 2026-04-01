@@ -1,0 +1,42 @@
+<svg width="144pt" height="130pt"
+ viewBox="0.00 0.00 144.00 130.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.41445 1.41445) rotate(0) translate(4 88.01)">
+<polygon fill="none" stroke="none" points="-4,4 -4,-88.01 97.81,-88.01 97.81,4 -4,4"/>
+<!-- Paper -->
+<g id="node1" class="node">
+<title>Paper</title>
+<ellipse fill="SteelBlue" stroke="Black" cx="10.8" cy="-72.73" rx="10.8" ry="10.8"/>
+<text xml:space="preserve" text-anchor="middle" x="10.8" y="-70.01" font-family="Times,serif" font-size="8.00" fill="White">Paper</text>
+</g>
+<!-- Rock -->
+<g id="node2" class="node">
+<title>Rock</title>
+<ellipse fill="SteelBlue" stroke="Black" cx="83.01" cy="-73.21" rx="10.8" ry="10.8"/>
+<text xml:space="preserve" text-anchor="middle" x="83.01" y="-70.48" font-family="Times,serif" font-size="8.00" fill="White">Rock</text>
+</g>
+<!-- Paper&#45;&gt;Rock -->
+<g id="edge3" class="edge">
+<title>Paper&#45;&gt;Rock</title>
+<path fill="none" stroke="SteelBlue" stroke-width="2" d="M22.08,-72.81C32,-72.87 46.75,-72.97 59.25,-73.05"/>
+<polygon fill="SteelBlue" stroke="SteelBlue" stroke-width="2" points="58.99,-76.55 69.01,-73.12 59.04,-69.55 58.99,-76.55"/>
+</g>
+<!-- Scissors -->
+<g id="node3" class="node">
+<title>Scissors</title>
+<ellipse fill="SteelBlue" stroke="Black" cx="47.39" cy="-10.8" rx="10.8" ry="10.8"/>
+<text xml:space="preserve" text-anchor="middle" x="47.39" y="-8.07" font-family="Times,serif" font-size="8.00" fill="White">Scissors</text>
+</g>
+<!-- Rock&#45;&gt;Scissors -->
+<g id="edge1" class="edge">
+<title>Rock&#45;&gt;Scissors</title>
+<path fill="none" stroke="SteelBlue" stroke-width="2" d="M77.44,-63.46C72.55,-54.89 65.28,-42.14 59.11,-31.33"/>
+<polygon fill="SteelBlue" stroke="SteelBlue" stroke-width="2" points="62.3,-29.86 54.3,-22.91 56.22,-33.33 62.3,-29.86"/>
+</g>
+<!-- Scissors&#45;&gt;Paper -->
+<g id="edge2" class="edge">
+<title>Scissors&#45;&gt;Paper</title>
+<path fill="none" stroke="SteelBlue" stroke-width="2" d="M41.67,-20.48C36.65,-28.98 29.17,-41.63 22.84,-52.36"/>
+<polygon fill="SteelBlue" stroke="SteelBlue" stroke-width="2" points="19.97,-50.33 17.9,-60.72 26,-53.89 19.97,-50.33"/>
+</g>
+</g>
+</svg>
