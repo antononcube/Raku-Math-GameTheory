@@ -70,23 +70,19 @@ Get the game "Chicken" (provided by the package):
 my $obj = game-theory-data('Chicken')
 ```
 
+Here is a description of the game:
+
+```raku
+$obj.description
+```
+
 Here is game's table:
 
 ```raku, results=asis
 $obj.html
 ```
 
-Here is a gray-scale version of the dataset:
-
-```raku, results=asis
-$obj.html(theme => 'gray-scale')
-```
-
-Here is a description of the game:
-
-```raku
-$obj.description
-```
+Here is a gray-scale version of the dataset can be obtained with `$obj.html(theme => 'gray-scale')`.
 
 
 ----
@@ -155,7 +151,7 @@ $game.html(theme => 'default')
     - [ ] TODO Creation using WL's tree game input format
     - [ ] TODO Special tree-game plots
 - [ ] TODO Documentation
-  - [ ] TODO README
+  - [X] DONE Complete README
   - [ ] TODO Basic usage notebook
   - [ ] TODO Blog post
   - [ ] TODO Video demo

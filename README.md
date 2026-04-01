@@ -55,13 +55,13 @@ sink records-summary(@dsGames)
 # +------------------+--------------------------+
 # | property         | name                     |
 # +------------------+--------------------------+
-# | MatrixGame => 42 | RockPaperScissors => 5   |
-# | 2Player    => 26 | ZeroSumRandom     => 5   |
-# | Symmetric  => 24 | MatchingPennies   => 5   |
-# | NPlayer    => 12 | VolunteersDilemma => 5   |
-# | Social     => 10 | PureCoordination  => 5   |
-# | TreeGame   => 7  | DinersDilemma     => 4   |
-# | Recreation => 6  | OddsAndEvens      => 4   |
+# | MatrixGame => 42 | MatchingPennies   => 5   |
+# | 2Player    => 26 | VolunteersDilemma => 5   |
+# | Symmetric  => 24 | RockPaperScissors => 5   |
+# | NPlayer    => 12 | PureCoordination  => 5   |
+# | Social     => 10 | ZeroSumRandom     => 5   |
+# | TreeGame   => 7  | PrisonersDilemma  => 4   |
+# | Recreation => 6  | 3Coordination     => 4   |
 # | (Other)    => 26 | (Other)           => 120 |
 # +------------------+--------------------------+
 ```
@@ -110,6 +110,15 @@ my $obj = game-theory-data('Chicken')
 # MatrixGame(:name("Chicken"), :number-of-players(2), :number-of-actions(("Player 1" => 2, "Player 2" => 2)))
 ```
 
+Here is a description of the game:
+
+```raku
+$obj.description
+```
+```
+# The name \"chicken\" has its origins in a dangerous game in which two drivers drive toward each other. Each driver has the choice to either continue or swerve. Either at least one driver swerves, or both may die in the crash. The driver who swerved will be called a chicken, meaning a coward.
+```
+
 Here is game's table:
 
 ```raku, results=asis
@@ -138,42 +147,7 @@ $obj.html
 </table>
 
 
-Here is a gray-scale version of the dataset:
-
-```raku, results=asis
-$obj.html(theme => 'gray-scale')
-```
-<table border="1" cellspacing="0" cellpadding="6">
-  <caption align=bottom><i>Chicken</i></caption>  <tr>
-    <th bgcolor="#4f4f4f" style="color:gainsboro;"></th>
-    <th bgcolor="#4f4f4f" colspan="2" align="center" style="color:gainsboro;">Swerve</th>
-    <th bgcolor="#4f4f4f" colspan="2" align="center" style="color:gainsboro;">Straight</th>
-  </tr>
-  <tr>
-    <th bgcolor="#1f1f1f" align="left" style="color:gainsboro;">Swerve</th>
-    <td bgcolor="#1f1f1f" align="right" style="color:gainsboro;">0</td>
-    <td bgcolor="#4f4f4f" align="right" style="color:gainsboro;">0</td>
-    <td bgcolor="#1f1f1f" align="right" style="color:gainsboro;">-1</td>
-    <td bgcolor="#4f4f4f" align="right" style="color:gainsboro;">1</td>
-  </tr>
-  <tr>
-    <th bgcolor="#1f1f1f" align="left" style="color:gainsboro;">Straight</th>
-    <td bgcolor="#1f1f1f" align="right" style="color:gainsboro;">1</td>
-    <td bgcolor="#4f4f4f" align="right" style="color:gainsboro;">-1</td>
-    <td bgcolor="#1f1f1f" align="right" style="color:gainsboro;">-5</td>
-    <td bgcolor="#4f4f4f" align="right" style="color:gainsboro;">-5</td>
-  </tr>
-</table>
-
-
-Here is a description of the game:
-
-```raku
-$obj.description
-```
-```
-# The name \"chicken\" has its origins in a dangerous game in which two drivers drive toward each other. Each driver has the choice to either continue or swerve. Either at least one driver swerves, or both may die in the crash. The driver who swerved will be called a chicken, meaning a coward.
-```
+Here is a gray-scale version of the dataset can be obtained with `$obj.html(theme => 'gray-scale')`.
 
 
 ----
@@ -186,7 +160,7 @@ Get the game "3Coordination" (provided by the package):
 my $obj = game-theory-data('3Coordination')
 ```
 ```
-# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Stalin(3), :Roosevelt(3), :Churchill(3))))
+# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Roosevelt(3), :Stalin(3), :Churchill(3))))
 ```
 
 ```raku
@@ -339,7 +313,7 @@ my @payoff-array = ($g.adjacency-matrix <<->> transpose($g.adjacency-matrix)).de
 my $game = Math::GameTheory::MatrixGame.new(:@payoff-array, game-action-labels => ($g.vertex-list xx 2))
 ```
 ```
-# MatrixGame(:name(Whatever), :number-of-players(3), :number-of-actions(("Player 2" => 3, "Player 1" => 3)))
+# MatrixGame(:name(Whatever), :number-of-players(3), :number-of-actions(("Player 1" => 3, "Player 2" => 3)))
 ```
 
 Here is game's table:
@@ -401,7 +375,7 @@ $game.html(theme => 'default')
     - [ ] TODO Creation using WL's tree game input format
     - [ ] TODO Special tree-game plots
 - [ ] TODO Documentation
-  - [ ] TODO README
+  - [X] DONE Complete README
   - [ ] TODO Basic usage notebook
   - [ ] TODO Blog post
   - [ ] TODO Video demo
