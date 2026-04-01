@@ -121,7 +121,7 @@ my $g = Graph.new(edges => [Rock => "Scissors", Scissors => "Paper", Paper => "R
 #$g.dot(engine => 'neato', :2size, vertex-font-size => 8):svg
 ```
 
-[](./docs/img/Rock-Paper-Scissors-graph.svg)
+![](./docs/img/Rock-Paper-Scissors-graph.svg)
 
 Create a Rock Paper Scissors game:
 

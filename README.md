@@ -52,18 +52,18 @@ use Data::Summarizers;
 sink records-summary(@dsGames)
 ```
 ```
-# +--------------------------+------------------+
-# | name                     | property         |
-# +--------------------------+------------------+
-# | PureCoordination  => 5   | MatrixGame => 42 |
-# | VolunteersDilemma => 5   | 2Player    => 26 |
-# | ZeroSumRandom     => 5   | Symmetric  => 24 |
-# | MatchingPennies   => 5   | NPlayer    => 12 |
-# | RockPaperScissors => 5   | Social     => 10 |
-# | ArmsRaces         => 4   | TreeGame   => 7  |
-# | Convergence       => 4   | Recreation => 6  |
-# | (Other)           => 120 | (Other)    => 26 |
-# +--------------------------+------------------+
+# +------------------+--------------------------+
+# | property         | name                     |
+# +------------------+--------------------------+
+# | MatrixGame => 42 | RockPaperScissors => 5   |
+# | 2Player    => 26 | ZeroSumRandom     => 5   |
+# | Symmetric  => 24 | MatchingPennies   => 5   |
+# | NPlayer    => 12 | VolunteersDilemma => 5   |
+# | Social     => 10 | PureCoordination  => 5   |
+# | TreeGame   => 7  | DinersDilemma     => 4   |
+# | Recreation => 6  | OddsAndEvens      => 4   |
+# | (Other)    => 26 | (Other)           => 120 |
+# +------------------+--------------------------+
 ```
 
 Here is a "taxonomy tree" like breakdown:
@@ -107,7 +107,7 @@ Get the game "Chicken" (provided by the package):
 my $obj = game-theory-data('Chicken')
 ```
 ```
-# MatrixGame(:name("Chicken"), :number-of-players(2), :number-of-actions(("Player 2" => 2, "Player 1" => 2)))
+# MatrixGame(:name("Chicken"), :number-of-players(2), :number-of-actions(("Player 1" => 2, "Player 2" => 2)))
 ```
 
 Here is game's table:
@@ -186,7 +186,7 @@ Get the game "3Coordination" (provided by the package):
 my $obj = game-theory-data('3Coordination')
 ```
 ```
-# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Roosevelt(3), :Churchill(3), :Stalin(3))))
+# MatrixGame(:name("3Coordination"), :number-of-players(3), :number-of-actions((:Stalin(3), :Roosevelt(3), :Churchill(3))))
 ```
 
 ```raku
@@ -328,7 +328,7 @@ my $g = Graph.new(edges => [Rock => "Scissors", Scissors => "Paper", Paper => "R
 # Graph(vertexes => 3, edges => 3, directed => True)
 ```
 
-[](./docs/img/Rock-Paper-Scissors-graph.svg)
+![](./docs/img/Rock-Paper-Scissors-graph.svg)
 
 Create a Rock Paper Scissors game:
 
