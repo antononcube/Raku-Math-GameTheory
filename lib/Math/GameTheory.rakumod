@@ -24,11 +24,19 @@ our multi sub game-theory-data() {
 }
 
 our multi sub game-theory-data('Classes') {
-    get-game-data().map({ $_.value<classes> }).flat.sort;
+    get-game-data().map({ $_.value<classes> }).flat(:hammer).unique.sort;
 }
 
 our multi sub game-theory-data('Properties') {
     ['Description', 'Classes', 'Source'];
+}
+
+our multi sub game-theory-data(Whatever, Str:D :prop(:$property)!) {
+
+    die "The value of \$property is expected to be one of: '{game-theory-data('Properties').join("', '")}'."
+    unless $property ∈ game-theory-data('Properties');
+
+    game-theory-data().map({ $_ => game-theory-data($_, $property) }).Hash
 }
 
 our multi sub game-theory-data(Str:D $name, 'Description') {
