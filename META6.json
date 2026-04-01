@@ -14,7 +14,7 @@
     "provides": {
         "Math::GameTheory": "lib/Math/GameTheory.rakumod",
         "Math::GameTheory::Creators": "lib/Math/GameTheory/Creators.rakumod",
-        "Math::GameTheory::Formatish": "lib/Math/GameTheory/Formatish.rakumod",
+        "Math::GameTheory::MatrixGame::Formatish": "lib/Math/GameTheory/MatrixGame/Formatish.rakumod",
         "Math::GameTheory::MatrixGame": "lib/Math/GameTheory/MatrixGame.rakumod"
     },
     "resources": [

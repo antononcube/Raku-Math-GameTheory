@@ -1,8 +1,9 @@
 use v6.d;
 
-use Math::GameTheory::Formatish;
+use Math::GameTheory::MatrixGame::Formatish;
 
-class Math::GameTheory::MatrixGame does Math::GameTheory::Formatish {
+class Math::GameTheory::MatrixGame
+        does Math::GameTheory::MatrixGame::Formatish {
 
     has $.name is rw = Whatever;
     has Str:D $.description is rw = '';

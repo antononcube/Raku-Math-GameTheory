@@ -1,6 +1,6 @@
 use v6.d;
 
-role Math::GameTheory::Formatish {
+role Math::GameTheory::MatrixGame::Formatish {
 
     #| WL representation of the game
     method wl() {
