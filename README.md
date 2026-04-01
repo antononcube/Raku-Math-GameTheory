@@ -52,18 +52,18 @@ use Data::Summarizers;
 sink records-summary(@dsGames)
 ```
 ```
-# +------------------+--------------------------+
-# | property         | name                     |
-# +------------------+--------------------------+
-# | MatrixGame => 42 | ZeroSumRandom     => 5   |
-# | 2Player    => 26 | MatchingPennies   => 5   |
-# | Symmetric  => 24 | PureCoordination  => 5   |
-# | NPlayer    => 12 | RockPaperScissors => 5   |
-# | Social     => 10 | VolunteersDilemma => 5   |
-# | TreeGame   => 7  | ElFarolBar        => 4   |
-# | Recreation => 6  | Chicken           => 4   |
-# | (Other)    => 26 | (Other)           => 120 |
-# +------------------+--------------------------+
+# +--------------------------+------------------+
+# | name                     | property         |
+# +--------------------------+------------------+
+# | PureCoordination  => 5   | MatrixGame => 42 |
+# | VolunteersDilemma => 5   | 2Player    => 26 |
+# | ZeroSumRandom     => 5   | Symmetric  => 24 |
+# | MatchingPennies   => 5   | NPlayer    => 12 |
+# | RockPaperScissors => 5   | Social     => 10 |
+# | ArmsRaces         => 4   | TreeGame   => 7  |
+# | Convergence       => 4   | Recreation => 6  |
+# | (Other)           => 120 | (Other)    => 26 |
+# +--------------------------+------------------+
 ```
 
 Here is a "taxonomy tree" like breakdown:
@@ -107,8 +107,10 @@ Get the game "Chicken" (provided by the package):
 my $obj = game-theory-data('Chicken')
 ```
 ```
-# MatrixGame(:name("Chicken"), :number-of-players(2), :number-of-actions(("Player 1" => 2, "Player 2" => 2)))
+# MatrixGame(:name("Chicken"), :number-of-players(2), :number-of-actions(("Player 2" => 2, "Player 1" => 2)))
 ```
+
+Here is game's table:
 
 ```raku, results=asis
 $obj.html
@@ -194,8 +196,10 @@ $obj.description
 # An extension of the coordination game where payoffs are based on the number of coordinated players.
 ```
 
+Here is game's table:
+
 ```raku, results=asis
-$obj.html(theme => 'default')
+$obj.html
 ```
 <table border="1" cellspacing="0" cellpadding="6">
   <caption align=bottom><i>3Coordination</i></caption>  <tr>
@@ -315,13 +319,14 @@ $obj.html(theme => 'default')
 
 Represent a Rock Paper Scissors game as a directed graph:
 
-```raku, results=asis
+```raku
 use Graph;
 my $g = Graph.new(edges => [Rock => "Scissors", Scissors => "Paper", Paper => "Rock"]):d;
 #$g.dot(engine => 'neato', :2size, vertex-font-size => 8):svg
 ```
-Graph(vertexes => 3, edges => 3, directed => True)
-
+```
+# Graph(vertexes => 3, edges => 3, directed => True)
+```
 
 [](./docs/img/Rock-Paper-Scissors-graph.svg)
 
@@ -334,10 +339,10 @@ my @payoff-array = ($g.adjacency-matrix <<->> transpose($g.adjacency-matrix)).de
 my $game = Math::GameTheory::MatrixGame.new(:@payoff-array, game-action-labels => ($g.vertex-list xx 2))
 ```
 ```
-# MatrixGame(:name(Whatever), :number-of-players(3), :number-of-actions(("Player 1" => 3, "Player 2" => 3)))
+# MatrixGame(:name(Whatever), :number-of-players(3), :number-of-actions(("Player 2" => 3, "Player 1" => 3)))
 ```
 
-Here is game's dataset:
+Here is game's table:
 
 ```raku, results=asis
 $game.html(theme => 'default')

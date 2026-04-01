@@ -70,6 +70,8 @@ Get the game "Chicken" (provided by the package):
 my $obj = game-theory-data('Chicken')
 ```
 
+Here is game's table:
+
 ```raku, results=asis
 $obj.html
 ```
@@ -101,8 +103,10 @@ my $obj = game-theory-data('3Coordination')
 $obj.description
 ```
 
+Here is game's table:
+
 ```raku, results=asis
-$obj.html(theme => 'default')
+$obj.html
 ```
 
 ---
@@ -111,7 +115,7 @@ $obj.html(theme => 'default')
 
 Represent a Rock Paper Scissors game as a directed graph:
 
-```raku, results=asis
+```raku
 use Graph;
 my $g = Graph.new(edges => [Rock => "Scissors", Scissors => "Paper", Paper => "Rock"]):d;
 #$g.dot(engine => 'neato', :2size, vertex-font-size => 8):svg
@@ -128,7 +132,7 @@ my @payoff-array = ($g.adjacency-matrix <<->> transpose($g.adjacency-matrix)).de
 my $game = Math::GameTheory::MatrixGame.new(:@payoff-array, game-action-labels => ($g.vertex-list xx 2))
 ```
 
-Here is game's dataset:
+Here is game's table:
 
 ```raku, results=asis
 $game.html(theme => 'default')
