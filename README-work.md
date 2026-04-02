@@ -60,6 +60,20 @@ game-theory-data(Whatever, property => "Classes").values
 ==> trie-form()
 ```
 
+Here is a property vs. game cross tabulation:
+
+```raku, results=asis
+use Data::Reshapers;
+use Data::Translators;
+
+cross-tabulate(@dsGames, 'property', 'name')
+==> { $_.map({ %( property => $_.key, |$_.value) }).sort(*<property>).List }()
+==> to-dataset()
+==> to-html(field-names => ['property', |game-theory-data()], :vertical-header-names)
+==> { .subst('1', '⏺', :g) }()
+==> { .subst(/ ['<th' .+? '>' property '</th>'] /,  '<th>property</th>') }()
+```
+
 ----
 
 ## Two player games
