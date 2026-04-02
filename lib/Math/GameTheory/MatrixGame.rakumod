@@ -1,6 +1,7 @@
 use v6.d;
 
 use Math::GameTheory::MatrixGame::Formatish;
+use Data::TypeSystem;
 
 class Math::GameTheory::MatrixGame
         does Math::GameTheory::MatrixGame::Formatish {
@@ -26,6 +27,21 @@ class Math::GameTheory::MatrixGame
         @!game-player-labels = self!default-player-labels unless @!game-player-labels.elems;
         @!game-action-labels = self!default-action-labels unless @!game-action-labels.elems;
 
+        # Check payoff array
+        given @!payoff-array {
+            when is-full-array(@!payoff-array, depth => @!game-player-labels.elems + 1, element-type => Numeric) {
+                # Do nothing
+            }
+            when is-full-array(@!payoff-array, depth => 2, element-type => Numeric) {
+                # Zero-sum game array of two players
+                @!payoff-array .= deepmap(-> Numeric:D $p { [$p, -$p] });
+                @!game-player-labels = "Player 1", "Player 2";
+            }
+            default {
+                die "For {@!payoff-array.elems} players the payoff array is expected to be a full array" ~
+                        " of numeric elements and with depth {@!payoff-array.elems + 1}."
+            }
+        }
     }
 
     #| Composite payoff array
