@@ -1,7 +1,7 @@
 {
     "name": "Math::GameTheory",
     "description": "Facilitation of Game theory models, experiments, and studies.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "raku": "6.*",
     "authors": [
         "Anton Antonov"
@@ -9,6 +9,7 @@
     "auth": "zef:antononcube",
     "depends": [
         "JSON::Fast:ver<0.19+>",
+        "Data::TypeSystem:ver<0.1.8+>",
         "Statistics::Distributions:ver<0.1.7>"
     ],
     "provides": {
